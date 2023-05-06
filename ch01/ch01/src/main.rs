@@ -56,7 +56,7 @@ fn ownership(nums: Vec<i32>) {
     println!("{}", ret);
 }
 
-fn ownership_ref(nums: &Vec<i32>) {
+fn ownership_ref(_nums: &Vec<i32>) {
     () // do nothing
 }
 
