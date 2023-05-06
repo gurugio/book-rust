@@ -52,6 +52,7 @@ ch04: 러스트에만 있는 개념들
 * Generic, life time (https://doc.rust-lang.org/book/ch10-00-generics.html)
 
 ch05
+* std:collections
 * 매크로
 
 ch06
