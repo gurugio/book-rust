@@ -60,7 +60,67 @@ fn ownership_ref(_nums: &Vec<i32>) {
     () // do nothing
 }
 
+fn sum(start: i32, max: i32) -> i32 {
+    if start < max {
+        start + sum(start + 1, max)
+    } else {
+        max
+    }
+}
+
+fn fizzbuzz_ternary() {
+    let num = 10;
+    let var = if num % 3 == 0 { 3 } else {
+        if num % 5 == 0 { 5 } else { 0}
+    };
+    println!("{}", var);
+}
+
+fn fizzcheck(n: i32) -> bool {
+    n % 3 == 0
+}
+
+fn buzzcheck(n: i32) -> bool {
+    n % 5 == 0
+}
+fn fizzbuzz_fn(fizzfn: fn(i32) -> bool, buzzfn: fn(i32) -> bool) {
+    for i in 1..=100 {
+        if fizzfn(i) && buzzfn(i) {
+            println!("FizzBizz");
+        } else if fizzfn(i) {
+            println!("Fizz");
+        } else if buzzfn(i) {
+            println!("Buzz");
+        }
+    }
+}
+
+fn fib(mut index: i32) -> i32 {
+    let mut a = 1;
+    let mut b = 1;
+    let mut t;
+
+    loop {
+        t = a + b;
+        a = b;
+        b = t;
+
+        index -= 1;
+        if index <= 0 {
+            break;
+        }
+    }
+    b
+}
+
 fn main() {
+    println!("{}", fib(3));
+    //println!("{}", sum(1, 10));
+    //fizzbuzz_ternary();
+    //fizzbuzz_fn(fizzcheck, buzzcheck);
+    //fizzbuzz_fn(|i| i % 3 == 0, |k| k % 5 == 0);
+
+    /*
     fizzbuzz_1(100);
     fizzbuzz_2(100);
     fizzbuzz_3(100);
@@ -71,4 +131,5 @@ fn main() {
     let nums = (1..=100).collect::<Vec<i32>>();
     ownership_ref(&nums);
     ownership(nums);
+    */
 }
